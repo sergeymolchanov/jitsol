@@ -1,7 +1,7 @@
-package com.jitsol.planner.calculator;
+package com.jitsol.planner.solver;
 
 import com.jitsol.planner.common.ICalcSummary;
 
-public interface ICalculator {
+public interface ISolver {
     ICalcSummary getSummary();
 }
