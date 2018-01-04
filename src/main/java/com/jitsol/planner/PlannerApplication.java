@@ -2,8 +2,7 @@ package com.jitsol.planner;
 
 import com.jitsol.planner.loader.ILoader;
 import com.jitsol.planner.solver.ISolver;
-import com.jitsol.planner.solver.LocalSolver;
-import com.jitsol.planner.solver.RemoteSolver;
+import com.jitsol.planner.solver.LocalSolver.LocalSolver;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.boot.SpringApplication;
@@ -38,10 +37,11 @@ public class PlannerApplication {
 		switch (solverType.toLowerCase()) {
 			case("local"):
 				return new LocalSolver();
-			case("remote"):
-				return new RemoteSolver();
+			/*case("remote"):
+				return new RemoteSolver();*/
 			default:
 				throw new ConfigurationException("solver.type prop value can be 'local' or 'remote' only");
 		}
+
 	}
 }

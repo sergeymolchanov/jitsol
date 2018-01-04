@@ -1,16 +1,8 @@
 package com.jitsol.planner.loader;
 
-import com.jitsol.planner.common.ICalcSummary;
-import com.jitsol.planner.common.Task;
+import com.jitsol.planner.datastore.ILoaderDataStore;
 
 public interface ILoader {
-    ICalcSummary getSummary();
-
-    void StartGetTasks();
-    Task[] GetTasks(int maxLen);
-    void EndGetTasks();
-
-    void StartSetTasks();
-    void SetTasks(Task[] tasks);
-    void EndSetTasks();
+    void prepare() throws LoaderException;
+    void load(ILoaderDataStore dataStore) throws LoaderException;
 }

@@ -1,7 +1,8 @@
 package com.jitsol.planner.solver;
 
-import com.jitsol.planner.common.ICalcSummary;
+import com.jitsol.planner.datastore.ISolverDataStore;
+import com.jitsol.planner.solver.exception.SolverException;
 
 public interface ISolver {
-    ICalcSummary getSummary();
+    void Solve(ISolverDataStore dataStore) throws SolverException;
 }
