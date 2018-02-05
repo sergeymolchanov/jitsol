@@ -14,7 +14,7 @@ public class LocalSolver implements ISolver {
 
     @Override
     public void Solve(ISolverDataStore dataStore) throws SolverException {
-        for(Order order : dataStore.getOrders()) {
+        for (Order order : dataStore.getOrders()) {
             if (order.getFirstLevelTask() == null) {
                 Task firstTask = new Task(order, order.getQty());
                 order.setFirstLevelTask(firstTask);
@@ -22,18 +22,16 @@ public class LocalSolver implements ISolver {
             }
         }
 
-        for(int z=0; z<2; z++) {
-            int processedTaskCount = 0;
-            int taskCount = 0;
-            while ((taskCount = dataStore.getTaskCount()) != processedTaskCount) {
-                Task[] tasks = dataStore.getTasks();
+        int processedTaskCount = 0;
+        int taskCount = 0;
+        while ((taskCount = dataStore.getTaskCount()) != processedTaskCount) {
+            Task[] tasks = dataStore.getTasks();
 
-                for (int i = processedTaskCount; i < taskCount; i++) {
-                    System.out.println("Task " + i);
-                    processTask(dataStore, tasks[i]);
-                }
-                processedTaskCount = taskCount;
+            for (int i = processedTaskCount; i < taskCount; i++) {
+                System.out.println("Task " + i);
+                processTask(dataStore, tasks[i]);
             }
+            processedTaskCount = taskCount;
         }
     }
 
@@ -70,7 +68,7 @@ public class LocalSolver implements ISolver {
     }
 
     private int getUsedVariantNum(ProductionState state) {
-        return 0;
+        return 1;
     }
 
     private class ProductionRuleCmpObject {

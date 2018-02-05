@@ -38,6 +38,19 @@ public class DataStore implements ILoaderDataStore, ISolverDataStore {
     }
 
     @Override
+    public void addRule(ProductionRule rule) {
+        if (this.rules == null) {
+            throw new RuntimeException("Call 'init' first");
+        }
+
+        if (rulesCount >= this.rules.length) {
+            throw new RuntimeException("Rules owerflow");
+        }
+        rules[rulesCount] = rule;
+        rulesCount++;
+    }
+
+    @Override
     public void addRules(ProductionRule[] rules) {
         if (this.rules == null) {
             throw new RuntimeException("Call 'init' first");

@@ -1,8 +1,5 @@
 package com.jitsol.planner.datastore.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Order {
     private final String name;
     private final ProductionState finalState;

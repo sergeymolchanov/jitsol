@@ -1,6 +1,7 @@
 package com.jitsol.planner.manager;
 
 import com.jitsol.planner.datastore.DataStore;
+import com.jitsol.planner.datastore.model.ProductionRule;
 import com.jitsol.planner.datastore.model.Resource;
 import com.jitsol.planner.loader.ILoader;
 import com.jitsol.planner.loader.LoaderException;
@@ -53,6 +54,13 @@ public class Manager {
     public void UploadData() {
         changeState(ApplicationState.Processed, ApplicationState.Export);
         System.out.println("TODO: Do upload data");
+        for(int i=0; i<dataStore.getTaskCount(); i++) {
+            ProductionRule rule =  dataStore.getTask(i).getRule();
+            if (rule != null) {
+                System.out.println("Task " + rule.getStateBefore().getViewText() + " -> " + rule.getStateAfter().getViewText());
+            }
+        }
+
         changeState(ApplicationState.Export, ApplicationState.Exported);
     }
 

@@ -1,4 +1,4 @@
-package com.jitsol.planner.loader.SCMO;
+package com.jitsol.planner.loader.SCMO.model;
 
 import com.jitsol.planner.datastore.model.*;
 
